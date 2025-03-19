@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Area & Leap Year Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Triangle Area Calculator</h2>
+        <input type="number" id="base" placeholder="Enter base" required>
+        <input type="number" id="height" placeholder="Enter height" required>
+        <button onclick="calculateArea()">Calculate Area</button>
+        <p id="areaResult"></p>
+    </div>
+    
+    <div class="container">
+        <h2>Leap Year Checker</h2>
+        <input type="number" id="year" placeholder="Enter year" required>
+        <button onclick="checkLeapYear()">Check Leap Year</button>
+        <p id="leapResult"></p>
+    </div>
+    
+    <button onclick="printPage()">Print Page</button>
+    
+    <script>
+        function calculateArea() {
+            let base = document.getElementById("base").value;
+            let height = document.getElementById("height").value;
+            if (base > 0 && height > 0) {
+                let area = 0.5 * base * height;
+                document.getElementById("areaResult").innerText = "Area: " + area;
+            } else {
+                document.getElementById("areaResult").innerText = "Please enter valid numbers";
+            }
+        }
+
+        function checkLeapYear() {
+            let year = document.getElementById("year").value;
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                document.getElementById("leapResult").innerText = year + " is a Leap Year";
+            } else {
+                document.getElementById("leapResult").innerText = year + " is NOT a Leap Year";
+            }
+        }
+        
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
